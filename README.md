@@ -19,3 +19,8 @@ Repository requested by [VinaySeelam]( https://github.com/VinaySeelam/Search)
 
 ## Synopsis
 This project will help to validate different API's from "waarkoop-server.herokuapp.com"
+
+## setting up global values for local repo
+
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
