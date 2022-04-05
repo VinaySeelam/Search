@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.qlick.product</groupId>
-  <artifactId>Search</artifactId>
+  <artifactId>APIAutomation</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
   <name>Search</name>
