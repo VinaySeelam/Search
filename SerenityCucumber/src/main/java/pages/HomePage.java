@@ -122,8 +122,7 @@ public class HomePage extends BasePage {
 	public void selectWarrenty(int months) {
 		WebDriverWait wait = new WebDriverWait(getDriver(), 60);
 		WebElementFacade selectWarenty = find(By.xpath("(//div[@class='col col-4'])[2]/div/div[2]"));
-		WebElementFacade selectMonthlyWarenty = find(
-				By.xpath("(//div[@class='v-input--radio-group__input']/div[3]/div/div/div/div[1]/div/div/div"));
+		WebElementFacade selectMonthlyWarenty = find(By.xpath("//div[@class='v-input--radio-group__input']/div[3]/div/div/div[1]/div"));
 		WebElementFacade warrentySave = find(By.xpath("(//span[contains(text(),'Save and Confirm')])[2]"));
 
 		selectWarenty.click();
