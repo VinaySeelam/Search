@@ -20,3 +20,7 @@ Scenario: TC03_Seaching for car product
 Given Accessing product payload
 When he calls "car" product from resource
 Then he don't see the results
+
+@Users @all
+Scenario: Find the total number of users
+Given I am finding total number of users

@@ -4,6 +4,7 @@ import java.io.IOException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.path.json.JsonPath;
@@ -71,6 +72,27 @@ public class StepDefinations {
 		assertEquals(message,ERROR_MESSAGE);
 		
 	}
-
-
+	
+	
+	@Given("I am finding total number of users")
+	public void i_am_finding_total_number_of_users() throws Exception{
+		
+		RestAssured.baseURI ="https://reqres.in";
+		RestAssured.useRelaxedHTTPSValidation();
+//		RestAssured.proxy("http.proxy.fmr.com",8000);
+			String res = given().contentType("application/json").
+			when().get("/api/users").
+			then().log().all().assertThat().statusCode(200).extract().response().asString();
+			
+			JsonPath json = new JsonPath(res);
+			int totalUsers = json.get("data.size()");
+			System.out.println("Total Number of Users: " + totalUsers);
+			System.out.println("\n");
+			
+			for(int i=0;i<totalUsers;i++) {
+				System.out.println("First name: " + json.get("data["+i+"].first_name"));
+				System.out.println("Last name: " + json.get("data["+i+"].last_name"));
+				System.out.println("\n");
+			}
+	}
 }
