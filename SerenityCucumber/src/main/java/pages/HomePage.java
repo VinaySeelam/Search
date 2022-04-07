@@ -4,6 +4,10 @@ import java.io.InputStream;
 import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -33,7 +37,7 @@ public class HomePage extends BasePage {
 	}
 
 	public void openBaseUrl(String url) {
-
+				
 		url = loadresources("CD_URL");		
 		getDriver().get(url);
 		getDriver().manage().deleteAllCookies();
