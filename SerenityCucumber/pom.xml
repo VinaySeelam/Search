@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.w2a</groupId>
-  <artifactId>SerenityCucumber</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  
-  
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.w2a</groupId>
+	<artifactId>SerenityCucumber</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -32,7 +32,7 @@
 			<artifactId>serenity-core</artifactId>
 			<version>${serenity.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>net.serenity-bdd</groupId>
 			<artifactId>serenity-junit</artifactId>
@@ -92,7 +92,6 @@
 	</dependencies>
 
 
-
 	<build>
 		<plugins>
 			<plugin>
@@ -108,16 +107,22 @@
 				<version>2.22.1</version>
 				<configuration>
 					<includes>
+						<include>**/testcases/**/*.java</include> 
+						 <include>**/runner/**/*.java</include>
+						<include>**/runner/*.java</include> 
+						<include>**/RunCuke*.java</include> 					
+					</includes> 
 
-						<!-- <include>**/testcases/Parameterization.java</include> -->
-						<include>**/runner/**/*.java</include>
-						<include>**/runner/*.java</include>
-
-					</includes>
-
+					<!-- 	<includes>
+						<include>**/integration/*IT</include>
+						<include>**/integration/When*</include>
+						<include>**/integration/*Examples</include>
+						<include>**/integration/*Test</include>
+						<include>**/integration/*TestSuite</include>
+					</includes> -->				
 					<parallel>classes</parallel>
-					<threadCount>2</threadCount>
-					<forkCount>2C</forkCount>
+					<threadCount>3</threadCount>
+					<forkCount>3C</forkCount> 			
 				</configuration>
 				<executions>
 					<execution>
@@ -145,15 +150,15 @@
 					<tags>${tags}</tags>
 					<reports>email</reports>
 				</configuration>
-						<dependencies>
-							<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
-							<dependency>
-								<groupId>net.serenity-bdd</groupId>
-								<artifactId>serenity-emailer</artifactId>
-								<version>2.0.60</version>
-								<!--<scope>test</scope> -->								
-							</dependency>
-						</dependencies>		
+				<dependencies>
+					<!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+					<dependency>
+						<groupId>net.serenity-bdd</groupId>
+						<artifactId>serenity-emailer</artifactId>
+						<version>2.0.60</version>
+						<!--<scope>test</scope> -->
+					</dependency>
+				</dependencies>
 				<executions>
 					<execution>
 						<id>serenity-reports</id>
@@ -166,4 +171,6 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	
 </project>
